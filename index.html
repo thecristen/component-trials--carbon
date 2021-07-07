@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <script type="module" src="/src/my-element.js"></script>
+    <script type="module" src="/src/main.jsx"></script>
+    <script type="module" src="/main.js"></script>
+  </head>
+  <body>
+    <h1>Carbon Design System: Let's make a custom button.</h1>
+    <hr />
+    <div id="mbta-button"></div>
+    <pre>
+      import ReactDOM from 'react-dom'
+      import React from 'react'
+      import BXButton from 'carbon-web-components/es/components-react/button/button'
+
+      ReactDOM.render(&lt;BXButton kind="primary"&gt;React button&lt;/BXButton&gt;, document.getElementById('mbta-button'));
+
+      // markup
+      &lt;div class="mbta-button"&gt;&lt;/div&gt;
+    </pre>
+
+    <hr />
+    <div id="mbta-button-2"></div>
+    <pre>
+      import ReactDOM from 'react-dom'
+      import React from 'react'
+      import 'carbon-web-components/es/components/button/button.js';
+
+      ReactDOM.render(&lt;bx-btn kind="primary"&gt;React + Web component button&lt;/bx-btn&gt;, document.getElementById('mbta-button-2'));
+
+      // markup
+      &lt;div class="mbta-button-2"&gt;&lt;/div&gt;
+    </pre>
+
+    <hr />
+    <bx-btn kind="primary">Web component button</bx-btn>
+    <pre>
+      // javascript
+      import 'carbon-web-components/es/components/button/button.js';
+
+      // markup
+      &lt;bx-btn kind="primary"&gt;Web component button&lt;/bx-btn&gt;
+    </pre>
+
+    <hr />
+    <button class="bx--btn bx--btn--primary">Plain button</button>
+    <pre>
+      // javascript or scss
+      import 'carbon-components/scss/components/button/_button.scss';
+
+      // markup
+      &lt;button class="bx--btn bx--btn--primary"&gt;Plain button&lt;/button&gt;
+    </pre>
+  </body>
+</html>
