@@ -2,74 +2,81 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <!-- <link rel="icon" type="image/svg+xml" href="favicon.svg" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Buttons</title>
-    <link rel="stylesheet" type="text/css" href="style.scss">
+    <link rel="stylesheet" type="text/css" href="./style.scss">
     <script type="module" src="/src/my-element.js"></script>
     <script type="module" src="/src/main.jsx"></script>
-    <script type="module" src="/main.js"></script>
+    <!-- <script type="module" src="/main.js"></script> -->
   </head>
   <body>
-    <h1>Carbon Design System: Let's make a custom button.</h1>
+    <h1>Carbon Design System: Let's make a custom button. (WIP)</h1>
     <hr />
     <div id="mbta-button"></div>
     <pre>
-      import ReactDOM from 'react-dom'
-      import React from 'react'
-      import BXButton from 'carbon-web-components/es/components-react/button/button'
+import ReactDOM from 'react-dom'
+import React from 'react'
+import BXButton from 'carbon-web-components/es/components-react/button/button'
 
-      ReactDOM.render(&lt;BXButton kind="primary"&gt;React button&lt;/BXButton&gt;, document.getElementById('mbta-button'));
+ReactDOM.render(&lt;BXButton kind="primary"&gt;React button&lt;/BXButton&gt;, document.getElementById('mbta-button'));
 
-      // markup
-      &lt;div class="mbta-button"&gt;&lt;/div&gt;
+// markup
+&lt;div class="mbta-button"&gt;&lt;/div&gt;
     </pre>
 
     <hr />
     <div id="mbta-button-2"></div>
     <pre>
-      import ReactDOM from 'react-dom'
-      import React from 'react'
-      import 'carbon-web-components/es/components/button/button.js';
+import ReactDOM from 'react-dom'
+import React from 'react'
+import 'carbon-web-components/es/components/button/button.js';
 
-      ReactDOM.render(&lt;bx-btn kind="primary"&gt;React + Web component button&lt;/bx-btn&gt;, document.getElementById('mbta-button-2'));
+ReactDOM.render(&lt;bx-btn kind="primary"&gt;React + Web component button&lt;/bx-btn&gt;, document.getElementById('mbta-button-2'));
 
-      // markup
-      &lt;div id="mbta-button-2"&gt;&lt;/div&gt;
+// markup
+&lt;div id="mbta-button-2"&gt;&lt;/div&gt;
     </pre>
 
     <hr />
     <bx-btn kind="primary" class="mbta-button">Web component button</bx-btn>
     <pre>
-      // javascript
-      import 'carbon-web-components/es/components/button/button.js';
+// javascript
+import 'carbon-web-components/es/components/button/button.js';
 
-      // markup
-      &lt;bx-btn kind="primary" class="mbta-button"&gt;Web component button&lt;/bx-btn&gt;
+// markup
+&lt;bx-btn kind="primary" class="mbta-button"&gt;Web component button&lt;/bx-btn&gt;
     </pre>
 
     <hr />
-    <button class="mbta-button">Plain button</button>
+    <button class="bx--btn bx--btn--primary">Plain button</button>
     <pre>
-      // scss
-      $text-04: white; // button primary text color
-      $interactive-01: #165c96; // button primary bg color
-      $hover-primary: darken($interactive-01, 10%); // button primary hover bg color
-      @import 'carbon-components/scss/components/button/_button.scss';
-      
-      .mbta-button {
-        @extend .bx--btn;
-        @extend .bx--btn--primary;
-        font: 16px/100% "Inter UI", "Helvetica Neue", Helvetica, Arial, sans-serif; // button font size/type/etc
-        text-align: center;
-        padding: .6rem 1.6rem;
-        line-height: 1.5;
-        border-radius: .25rem;
-        font-weight: 500;
-      }
+// scss
+// sets custom theme
+$mbta-font-family: "Inter UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$mbta--theme: (
+  interactive-01: #165c96,
+  text-04: #ffffff,
+  hover-primary: #06467a,
+  body-short-01: (
+    font-family: $mbta-font-family,
+    font-size: 1em,
+    font-weight: 500,
+    line-height: 1.5,
+    letter-spacing: 0.16px,
+  )
+);
 
-      // markup
-      &lt;button class="mbta-button"&gt;Plain button&lt;/button&gt;
+$carbon--theme: $mbta--theme;
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/themes/scss/themes.scss';
+@include carbon--theme();
+
+// Button Variables
+$button-border-radius: .25rem;
+$button-padding: .6rem 1.6rem;
+
+// markup
+&lt;button class="bx--btn bx--btn--primary"&gt;Plain button&lt;/button&gt;
     </pre>
   </body>
 </html>

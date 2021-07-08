@@ -1,13 +1,26 @@
-$text-04: white; // button primary text color
-$interactive-01: #165c96; // button primary bg color
-$hover-primary: darken($interactive-01, 10%); // button primary hover bg color
-// $body-short-01: 16px/100% "Inter UI", "Helvetica Neue", Helvetica, Arial, sans-serif; 
-// $body-short-01: (
-//   font-size: carbon--type-scale(2),
-//   font-weight: carbon--font-weight('regular'),
-//   line-height: 1.29,
-//   letter-spacing: 0.16px,
-// ); // button font size/type/etc
+// sets custom theme
+$mbta-font-family: "Inter UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$mbta--theme: (
+  interactive-01: #165c96,
+  text-04: #ffffff,
+  hover-primary: #06467a,
+  body-short-01: (
+    font-family: $mbta-font-family,
+    font-size: 1em,
+    font-weight: 500,
+    line-height: 1.5,
+    letter-spacing: 0.16px,
+  )
+);
+
+$carbon--theme: $mbta--theme;
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/themes/scss/themes.scss';
+@include carbon--theme();
+
+// Button Variables
+$button-border-radius: .25rem;
+$button-padding: .6rem 1.6rem;
+
 @import 'carbon-components/scss/components/button/_button.scss';
 
 body {
@@ -18,17 +31,6 @@ pre {
   border: 1px grey solid;
   margin: 1em;
   padding: 1em;
-  word-wrap: normal;
-}
-
-// overrides
-.mbta-button {
-  @extend .bx--btn;
-  @extend .bx--btn--primary;
-  font: 16px/100% "Inter UI", "Helvetica Neue", Helvetica, Arial, sans-serif; // button font size/type/etc
-  text-align: center;
-  padding: .6rem 1.6rem;
-  line-height: 1.5;
-  border-radius: .25rem;
-  font-weight: 500;
+  white-space: pre-wrap;
+  font-family: monospace;
 }
