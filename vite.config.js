@@ -8,7 +8,7 @@ export default defineConfig({
   base: "/component-trials--carbon/",
   build: {
     lib: {
-      entry: 'src/my-element.js',
+      entry: 'index.html',
       formats: ['es']
     },
     rollupOptions: {
