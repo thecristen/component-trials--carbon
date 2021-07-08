@@ -9,4 +9,4 @@
 // $body-short-01: "" // button font size/type/etc
 // $spacing-05: "" // button left padding (right has no variable)
 
-import 'carbon-components/scss/components/button/_button.scss';
+// import 'carbon-components/scss/components/button/_button.scss';

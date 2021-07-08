@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Buttons</title>
+    <link rel="stylesheet" type="text/css" href="style.scss">
     <script type="module" src="/src/my-element.js"></script>
     <script type="module" src="/src/main.jsx"></script>
     <script type="module" src="/main.js"></script>
@@ -34,27 +35,41 @@
       ReactDOM.render(&lt;bx-btn kind="primary"&gt;React + Web component button&lt;/bx-btn&gt;, document.getElementById('mbta-button-2'));
 
       // markup
-      &lt;div class="mbta-button-2"&gt;&lt;/div&gt;
+      &lt;div id="mbta-button-2"&gt;&lt;/div&gt;
     </pre>
 
     <hr />
-    <bx-btn kind="primary">Web component button</bx-btn>
+    <bx-btn kind="primary" class="mbta-button">Web component button</bx-btn>
     <pre>
       // javascript
       import 'carbon-web-components/es/components/button/button.js';
 
       // markup
-      &lt;bx-btn kind="primary"&gt;Web component button&lt;/bx-btn&gt;
+      &lt;bx-btn kind="primary" class="mbta-button"&gt;Web component button&lt;/bx-btn&gt;
     </pre>
 
     <hr />
-    <button class="bx--btn bx--btn--primary">Plain button</button>
+    <button class="mbta-button">Plain button</button>
     <pre>
-      // javascript or scss
-      import 'carbon-components/scss/components/button/_button.scss';
+      // scss
+      $text-04: white; // button primary text color
+      $interactive-01: #165c96; // button primary bg color
+      $hover-primary: darken($interactive-01, 10%); // button primary hover bg color
+      @import 'carbon-components/scss/components/button/_button.scss';
+      
+      .mbta-button {
+        @extend .bx--btn;
+        @extend .bx--btn--primary;
+        font: 16px/100% "Inter UI", "Helvetica Neue", Helvetica, Arial, sans-serif; // button font size/type/etc
+        text-align: center;
+        padding: .6rem 1.6rem;
+        line-height: 1.5;
+        border-radius: .25rem;
+        font-weight: 500;
+      }
 
       // markup
-      &lt;button class="bx--btn bx--btn--primary"&gt;Plain button&lt;/button&gt;
+      &lt;button class="mbta-button"&gt;Plain button&lt;/button&gt;
     </pre>
   </body>
 </html>
