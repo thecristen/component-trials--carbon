@@ -8,14 +8,24 @@ $mbta--theme: (
     font-family: $mbta-font-family,
     font-size: 1em,
     font-weight: 500,
-    line-height: 1.5,
-    letter-spacing: 0.16px,
+    line-height: 1.5
   )
 );
 
 $carbon--theme: $mbta--theme;
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/themes/scss/themes.scss';
-@include carbon--theme();
+@include carbon--theme($mbta--theme);
+
+$body-short: map-get($mbta--theme, 'body-short-01');
+
+#wc-custom {
+  --cds-button-primary: #165c96;
+  --cds-button-primary-hover: #06467a;
+  --cds-body-short-01-font-size: 1em;
+  --cds-body-short-01-font-family: $mbta-font-family;
+  --cds-body-short-01-font-weight: 500;
+  --cds-body-short-01-line-height: 1.5;
+}
 
 // Button Variables
 $button-border-radius: .25rem;

@@ -6,46 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Buttons</title>
     <link rel="stylesheet" type="text/css" href="./style.scss">
-    <script type="module" src="/src/my-element.js"></script>
-    <script type="module" src="/src/main.jsx"></script>
-    <!-- <script type="module" src="/main.js"></script> -->
+    <script type="module" src="./my-element.js"></script>
+    <script type="module" src="./main.jsx"></script>
   </head>
   <body>
     <h1>Carbon Design System: Let's make a custom button. (WIP)</h1>
     <hr />
     <div id="mbta-button"></div>
+    <div id="mbta-button-2"></div>
     <pre>
 import ReactDOM from 'react-dom'
 import React from 'react'
 import BXButton from 'carbon-web-components/es/components-react/button/button'
 
 ReactDOM.render(&lt;BXButton kind="primary"&gt;React button&lt;/BXButton&gt;, document.getElementById('mbta-button'));
-
-// markup
-&lt;div class="mbta-button"&gt;&lt;/div&gt;
-    </pre>
-
-    <hr />
-    <div id="mbta-button-2"></div>
-    <pre>
-import ReactDOM from 'react-dom'
-import React from 'react'
-import 'carbon-web-components/es/components/button/button.js';
-
 ReactDOM.render(&lt;bx-btn kind="primary"&gt;React + Web component button&lt;/bx-btn&gt;, document.getElementById('mbta-button-2'));
 
 // markup
+&lt;div id="mbta-button"&gt;&lt;/div&gt;
 &lt;div id="mbta-button-2"&gt;&lt;/div&gt;
     </pre>
 
     <hr />
-    <bx-btn kind="primary" class="mbta-button">Web component button</bx-btn>
+    <div id="wc-custom">
+      <mbta-btn kind="primary">Web component button custom</mbta-btn>
+    </div>
+    
     <pre>
+// scss
+#wc-custom {
+  --cds-button-primary: #165c96;
+  --cds-button-primary-hover: #06467a;
+  --cds-body-short-01-font-size: 1em;
+  --cds-body-short-01-font-family: $mbta-font-family;
+  --cds-body-short-01-font-weight: 500;
+  --cds-body-short-01-line-height: 1.5;
+}
+
 // javascript
-import 'carbon-web-components/es/components/button/button.js';
+import { css } from 'lit-element';
+import BXButton from 'carbon-web-components/es/components/button/button';
+
+class MBTAButton extends BXButton {}
+
+MBTAButton.styles = [
+  BXButton.styles,
+  css`
+    .bx--btn--primary {
+      border-radius: .25rem;
+      padding: .6rem 1.6rem;
+    }
+  `,
+];
+
+window.customElements.define('mbta-btn', MBTAButton);
 
 // markup
-&lt;bx-btn kind="primary" class="mbta-button"&gt;Web component button&lt;/bx-btn&gt;
+&lt;div id="wc-custom"&gt;
+&lt;mbta-btn kind="primary" class="mbta-button"&gt;Web component button custom&lt;/mbta-btn&gt;
+&lt;div&gt;
     </pre>
 
     <hr />
