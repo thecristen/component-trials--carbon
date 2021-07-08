@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import reactRefresh from '@vitejs/plugin-react-refresh'
+import { nodeResolve } from '@rollup/plugin-node-resolve'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -11,10 +12,13 @@ export default defineConfig({
       entry: 'index.html',
       formats: ["cjs"]
     },
-    // rollupOptions: {
-    //   external: [
-    //     'carbon-components'
-    //   ],
-    // }
+    rollupOptions: {
+      // external: [
+      //   'carbon-components'
+      // ],
+      plugins: [
+        nodeResolve()
+      ]
+    }
   }
 })
